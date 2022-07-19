@@ -1,6 +1,4 @@
-import { Box } from "@mui/system";
 import Link from "next/link";
-import next, { GetServerSideProps } from "next";
 import React, { useState, useEffect } from "react";
 import ReactMapGL, {
   Marker,
@@ -14,8 +12,6 @@ import { useSelector, useDispatch, AnyIfEmpty } from "react-redux";
 import { AppDispatch, RootState } from "../pages/_app";
 
 export default function Map(strays: any) {
-  const dispatch = useDispatch<AppDispatch>();
-  const posts = useSelector((state: RootState) => state.posts);
   const [viewport, setViewPort] = useState({
     latitude: 14.5794,
     longitude: 121.0359,

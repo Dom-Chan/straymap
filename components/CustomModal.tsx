@@ -1,14 +1,10 @@
 import React, { FormEventHandler } from "react";
 import styles from "../styles/modal.module.css";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import {
-  ThemeProvider,
-  createTheme,
   Box,
   Button,
   TextField,
-  Typography,
-  Paper,
 } from "@mui/material";
 import AddAPhotoIcon from "@mui/icons-material/AddAPhoto";
 import CancelIcon from '@mui/icons-material/Cancel';
@@ -17,13 +13,10 @@ import Radio from "@mui/material/Radio";
 import RadioGroup from "@mui/material/RadioGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import useMediaQuery from "@mui/material/useMediaQuery";
-import { getPosts, createPost } from "../actions/posts";
-import { useSelector, useDispatch } from "react-redux";
 import { AppDispatch, RootState } from "../pages/_app";
 import FileBase from "react-file-base64";
 import ReactMapGL, {
   Marker,
-  Popup,
   GeolocateControl,
   NavigationControl,
 } from "react-map-gl";
@@ -37,8 +30,6 @@ interface modalProps {
 export default function CustomModal({setOpenModal}: modalProps) {
   const matchesW: boolean = useMediaQuery("(min-width:400px)");
   const matchesH: boolean = useMediaQuery("(min-height:750px)");
-  const posts = useSelector((state: RootState) => state.posts);
-  const dispatch = useDispatch<AppDispatch>();
   const [fileErr, setFileErr] = useState(true);
   const [postData, setPostData] = useState({
     strayType: "",
@@ -80,7 +71,7 @@ export default function CustomModal({setOpenModal}: modalProps) {
       postData.latitude !== 0 &&
       postData.longitude !== 0
     ) {
-      dispatch(createPost(postData)),
+      dispatch(createPost(postData)), setOpenModal(false)
     } else window.alert("Please fill all required fields");
   };
 
@@ -102,12 +93,6 @@ export default function CustomModal({setOpenModal}: modalProps) {
     let size = Buffer.from(str).length;
     return size;
   };
-
-  useEffect(() => {
-    dispatch(getPosts());
-  }, [dispatch]);
-
-  const [open, setOpen] = useState(false);
 
   return (
     <>
@@ -230,7 +215,7 @@ export default function CustomModal({setOpenModal}: modalProps) {
                 console.log(len(postData.strayImg));
             }}
           />
-          <Box display="flex" justifyContent="flex-end" onClick={()=>setOpenModal(false)}>
+          <Box display="flex" justifyContent="flex-end">
             <Button
               sx={{ borderRadius: "10px" }}
               type="submit"

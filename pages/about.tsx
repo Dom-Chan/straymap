@@ -18,10 +18,10 @@ const About: NextPage = () => {
             onClick={() => setOpenModal(false)}
             className={styles.dblur}
           ></div>
-          <CustomModal />
+          <CustomModal setOpenModal={setOpenModal}/>
         </>
       )}
-      <Typography variant="h5">This project is a way of learning about the Next.js framework</Typography>
+      <Typography variant="h5">This project is a way of practicing the Next.js framework. Information shown is just for display purposes. Contact the developer for details. Email: dominic_chan@dlsu.edu.ph</Typography>
     </>
   );
 };

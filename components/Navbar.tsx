@@ -131,6 +131,9 @@ function Navbar({ setOpenModal, showButton, strayPage }: Nav) {
                     <AddCircleIcon fontSize="large" />
                   </Button>
                   <Tab
+                    onClick={() => {
+                      setOpenModal(false), router.push("/about");
+                    }}
                     icon={<InfoIcon />}
                     value="contact"
                     sx={{ minWidth: "30px", marginX: "10px" }}
