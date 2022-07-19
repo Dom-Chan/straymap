@@ -14,6 +14,11 @@ const customTheme = {
         },
       },
     },
+    MuiTextField: {
+      root: {
+        display: "flex"
+      }
+    }
     // MuiAppBar: {
     //   styleOverrides: {
     //     root: {

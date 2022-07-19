@@ -3,6 +3,7 @@
   margin: 0;
 }
 
+
 .Home {
   display: flex;
   flex-direction: column;
@@ -13,11 +14,37 @@
 
 .mobile {
   width: 100vw;
-  height: 60vh;
+  height: 100vh;
 }
+
+.dblur {
+  width: 100vw;
+  height: 100vh;
+  max-width: 100%;
+  
+  backdrop-filter: blur(10px);
+  position: absolute;
+  z-index: 2;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  z-index: 2;
+  min-width: 270px;
+  max-width: 430px;
+  width: 400px;
+}
+
 
 .desktop {
   width: 100vw;
   height: calc(100vh - 56px);
   max-width: 100%;
+}
+
+.box {
+  width: 100%;
+  height: calc(40vh - 56px);
+  background-color: blue;
 }

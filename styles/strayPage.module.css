@@ -1,0 +1,97 @@
+.strayContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.imageModalD {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  backdrop-filter: blur(5px);
+  z-index: 2;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.imageModalM {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  backdrop-filter: blur(5px);
+}
+
+.mapD {
+  height: 400px;
+  width: 400px;
+}
+
+.mapM {
+  height: 200px;
+  width: 200px;
+}
+
+.popupContent {
+  height: 100px;
+  width: 100px;
+  background: blue !important;
+  display: flex;
+}
+
+.mapboxgl-popup-content {
+  background: red;
+}
+
+.mainCon {
+  width: 100vw;
+  height: 100vh;
+  max-width: 100%;
+}
+
+.strayDetails {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  width: max-content;
+  height: max-content;
+  backdrop-filter: blur(3px);
+  top: 20%;
+  left: 14%;
+  transform: translate(-50%, -50%);
+  border: 1px;
+  border-color: black;
+  border-style: solid;
+  border-radius: 15px;
+  padding: 10px;
+}
+
+.strayDetailsM {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  width: 90%;
+  min-height: max-content;
+  max-height: 200px;
+  backdrop-filter: blur(3px);
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 1px;
+  border-color: black;
+  border-style: solid;
+  border-radius: 15px;
+  padding: 10px;
+  overflow-y: scroll;
+}
