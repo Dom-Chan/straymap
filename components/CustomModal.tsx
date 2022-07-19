@@ -30,7 +30,11 @@ import ReactMapGL, {
 import theme from ".././styles/theme";
 import { MdLabel, MdSend } from "react-icons/md";
 
-export default function CustomModal() {
+interface modalProps {
+  setOpenModal: any;
+}
+
+export default function CustomModal({setOpenModal}: modalProps) {
   const matchesW: boolean = useMediaQuery("(min-width:400px)");
   const matchesH: boolean = useMediaQuery("(min-height:750px)");
   const posts = useSelector((state: RootState) => state.posts);
@@ -76,7 +80,8 @@ export default function CustomModal() {
       postData.latitude !== 0 &&
       postData.longitude !== 0
     ) {
-      dispatch(createPost(postData));
+      dispatch(createPost(postData)),
+      ()=>setOpenModal(false)
     } else window.alert("Please fill all required fields");
   };
 

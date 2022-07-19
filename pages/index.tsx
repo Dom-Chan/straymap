@@ -45,7 +45,7 @@ const Home: NextPage = (strays) => {
               onClick={() => setOpenModal(false)}
               className={styles.dblur}
             ></div>
-            <CustomModal />
+            <CustomModal setOpenModal={setOpenModal}/>
           </>
         )}
       
