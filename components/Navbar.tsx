@@ -21,7 +21,13 @@ import MapTwoToneIcon from "@mui/icons-material/MapTwoTone";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import PersonPinIcon from "@mui/icons-material/PersonPin";
 
-function Navbar({ setOpenModal, showButton, strayPage }) {
+interface Nav {
+  setOpenModal: any;
+  showButton: any;
+  strayPage: any;
+}
+
+function Navbar({ setOpenModal, showButton, strayPage }: Nav) {
   const [value, setValue] = useState(strayPage);
   const matches = useMediaQuery("(min-width:400px)");
   const matchesB = useMediaQuery("(min-width:800px)");

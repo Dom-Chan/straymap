@@ -10,10 +10,10 @@ import ReactMapGL, {
 } from "react-map-gl";
 import { GiCat, GiSittingDog } from "react-icons/gi";
 import { getPosts, createPost } from "../actions/posts";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector, useDispatch, AnyIfEmpty } from "react-redux";
 import { AppDispatch, RootState } from "../pages/_app";
 
-export default function Map(strays) {
+export default function Map(strays: any) {
   const dispatch = useDispatch<AppDispatch>();
   const posts = useSelector((state: RootState) => state.posts);
   const [viewport, setViewPort] = useState({

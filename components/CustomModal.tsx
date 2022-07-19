@@ -65,7 +65,7 @@ export default function CustomModal() {
     type: "",
   });
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: any) => {
     e.preventDefault();
     if (
       postData.contact !== "" &&
@@ -80,7 +80,7 @@ export default function CustomModal() {
     } else window.alert("Please fill all required fields");
   };
 
-  const handlePoint = (e) => {
+  const handlePoint = (e: any) => {
     setPostData({
       ...postData,
       longitude: e.lngLat.lng,
@@ -94,7 +94,7 @@ export default function CustomModal() {
       });
   };
 
-  const len = (str) => {
+  const len = (str: any) => {
     let size = Buffer.from(str).length;
     return size;
   };
@@ -108,7 +108,7 @@ export default function CustomModal() {
   return (
     <>
       <div className={matchesW && matchesH ? styles.modalD : styles.modalM}>
-        {/* <div style={{ height: "49px" }} /> */}
+       
         <div className={matchesW ? styles.mapContainerD : styles.mapContainerM}>
           <ReactMapGL
             cursor="pointer"
@@ -197,7 +197,7 @@ export default function CustomModal() {
                 id="file"
                 type="file"
                 multiple={false}
-                onDone={(base64) => {
+                onDone={(base64: any) => {
                   console.log(base64)
                   if (len(base64.base64) > 100000) {
                     setFileErr(true);
