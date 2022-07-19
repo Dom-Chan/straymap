@@ -6,13 +6,43 @@ import { createStore, applyMiddleware, compose } from "redux";
 import thunk from "redux-thunk";
 import reducers from "../reducers";
 import customTheme from "../styles/theme";
-import {
-  ThemeProvider,
-  createTheme,
-} from "@mui/material";
+import { ThemeProvider, createTheme, Theme } from "@mui/material";
 
 const store = createStore(reducers, compose(applyMiddleware(thunk)));
-const theme = createTheme(customTheme);
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: "#4fc3f7",
+      light: "#8bf6ff",
+      dark: "#0093c4",
+      contrastText: "#00000",
+    },
+    secondary: {
+      main: "#1e88e5",
+      light: "#6ab7ff",
+      dark: "#005cb2",
+      contrastText: "#fff",
+    },
+    text: {
+      primary: "#fff",
+      secondary: "#00000",
+    },
+    mode: "dark",
+  },
+  components: {
+    MuiToolbar: {
+      styleOverrides: {
+        root: {
+          display: "flex",
+        },
+        regular: {
+          height: "56px",
+          minHeight: "56px !important",
+        },
+      },
+    },
+  },
+});
 // Infer the `RootState` and `AppDispatch` types from the store itself
 export type RootState = ReturnType<typeof store.getState>;
 // Inferred type: {posts: PostsState, comments: CommentsState, users: UsersState}

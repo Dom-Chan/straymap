@@ -1,7 +1,7 @@
-import { ThemeProvider } from "@mui/material";
+import { ThemeProvider, Theme } from "@mui/material";
 import { createTheme } from "@mui/material";
 
-const customTheme = {
+const customTheme  = {
   components: {
     MuiToolbar: {
       styleOverrides: {
@@ -19,14 +19,7 @@ const customTheme = {
         display: "flex"
       }
     }
-    // MuiAppBar: {
-    //   styleOverrides: {
-    //     root: {
-    //       display: "flex",
-    //       position: "static",
-    //     },
-    //   },
-    // },
+   
   },
   palette: {
     primary: {
