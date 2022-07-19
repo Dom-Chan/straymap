@@ -81,7 +81,6 @@ export default function CustomModal({setOpenModal}: modalProps) {
       postData.longitude !== 0
     ) {
       dispatch(createPost(postData)),
-      ()=>setOpenModal(false)
     } else window.alert("Please fill all required fields");
   };
 
@@ -231,7 +230,7 @@ export default function CustomModal({setOpenModal}: modalProps) {
                 console.log(len(postData.strayImg));
             }}
           />
-          <Box display="flex" justifyContent="flex-end">
+          <Box display="flex" justifyContent="flex-end" onClick={()=>setOpenModal(false)}>
             <Button
               sx={{ borderRadius: "10px" }}
               type="submit"
