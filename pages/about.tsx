@@ -7,7 +7,7 @@ import styles from "../styles/Home.module.css";
 import Navbar from "../components/Navbar";
 import CustomModal from "../components/CustomModal";
 
-const about: NextPage = () => {
+const About: NextPage = () => {
   const [openModal, setOpenModal] = useState(false);
   return (
     <>
@@ -26,4 +26,4 @@ const about: NextPage = () => {
   );
 };
 
-export default about;
+export default About;

@@ -14,7 +14,7 @@ import styles from "../../styles/strayPage.module.css";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import Navbar from "../../components/Navbar";
 
-const id: NextPage = () => {
+const Id: NextPage = () => {
   const router = useRouter();
   const [stray, setStray] = useState<any>();
   const [openModal, setOpenModal] = useState<any>(false);
@@ -123,4 +123,4 @@ const id: NextPage = () => {
   );
 };
 
-export default id;
+export default Id;
