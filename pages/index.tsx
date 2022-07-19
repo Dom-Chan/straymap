@@ -19,7 +19,7 @@ import useMediaQuery from "@mui/material/useMediaQuery";
 import Inputmap from "../components/Inputmap";
 
 const Home: NextPage = (strays) => {
-  const theme = createTheme(customTheme);
+  
   const matches: boolean = useMediaQuery("(min-width:400px)");
   const [openModal, setOpenModal] = useState(false);
 
