@@ -16,7 +16,7 @@ export const fetchStray = (id: string) => {
     .catch((err) => console.log(err));
 };
 
-export const createPost = (newPost) => {
+export const createPost = (newPost: any) => {
   axios
     .post(url, {newPost})
     .then((res) => console.log(res))
