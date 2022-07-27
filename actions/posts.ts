@@ -1,5 +1,6 @@
 import * as api from "../pages/api/posts";
 import axios from "axios";
+import { AppDispatch, RootState } from "../pages/_app";
 
 
 export const getPosts = () => async (dispatch: any) => {
@@ -14,7 +15,7 @@ export const getPosts = () => async (dispatch: any) => {
   } catch (error) {console.log(error)}
 };
 
-
+//(dispatch: any) => Promise<void>
 export const createPost = (post: any) => async (dispatch: any) => {
   try {
     const data = await api.createPost(post);

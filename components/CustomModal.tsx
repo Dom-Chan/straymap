@@ -13,8 +13,7 @@ import Radio from "@mui/material/Radio";
 import RadioGroup from "@mui/material/RadioGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import useMediaQuery from "@mui/material/useMediaQuery";
-import { AppDispatch, RootState } from "../pages/_app";
-import { useDispatch } from "react-redux";
+import { useAppDispatch } from "../pages/api/hooks";
 import { createPost } from "../actions/posts";
 import FileBase from "react-file-base64";
 import ReactMapGL, {
@@ -33,7 +32,7 @@ interface modalProps {
 export default function CustomModal({setOpenModal}: modalProps) {
   const matchesW: boolean = useMediaQuery("(min-width:400px)");
   const matchesH: boolean = useMediaQuery("(min-height:750px)");
-  const dispatch = useDispatch()
+  const dispatch = useAppDispatch()
   const [fileErr, setFileErr] = useState(true);
   const [postData, setPostData] = useState({
     strayType: "",
