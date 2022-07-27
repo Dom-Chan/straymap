@@ -4,19 +4,8 @@ import Head from "next/head";
 import styles from "../styles/Home.module.css";
 import Navbar from "../components/Navbar";
 import CustomModal from "../components/CustomModal";
-import {
-  ThemeProvider,
-  createTheme,
-  Box,
-  Button,
-  TextField,
-  Typography,
-  Paper,
-} from "@mui/material";
-import customTheme from "../styles/theme";
 import Map from "../components/Map";
 import useMediaQuery from "@mui/material/useMediaQuery";
-import Inputmap from "../components/Inputmap";
 
 const Home: NextPage = (strays) => {
   

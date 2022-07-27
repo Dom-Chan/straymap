@@ -5,7 +5,6 @@ import { Provider } from "react-redux";
 import { createStore, applyMiddleware, compose } from "redux";
 import thunk from "redux-thunk";
 import reducers from "../reducers";
-import customTheme from "../styles/theme";
 import { ThemeProvider, createTheme, Theme } from "@mui/material";
 
 const store = createStore(reducers, compose(applyMiddleware(thunk)));

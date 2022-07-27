@@ -14,6 +14,8 @@ import RadioGroup from "@mui/material/RadioGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { AppDispatch, RootState } from "../pages/_app";
+import { useDispatch } from "react-redux";
+import { createPost } from "../actions/posts";
 import FileBase from "react-file-base64";
 import ReactMapGL, {
   Marker,
@@ -23,6 +25,7 @@ import ReactMapGL, {
 import theme from ".././styles/theme";
 import { MdLabel, MdSend } from "react-icons/md";
 
+
 interface modalProps {
   setOpenModal: any;
 }
@@ -30,6 +33,7 @@ interface modalProps {
 export default function CustomModal({setOpenModal}: modalProps) {
   const matchesW: boolean = useMediaQuery("(min-width:400px)");
   const matchesH: boolean = useMediaQuery("(min-height:750px)");
+  const dispatch = useDispatch()
   const [fileErr, setFileErr] = useState(true);
   const [postData, setPostData] = useState({
     strayType: "",
@@ -188,7 +192,7 @@ export default function CustomModal({setOpenModal}: modalProps) {
                 multiple={false}
                 onDone={(base64: any) => {
                   console.log(base64)
-                  if (len(base64.base64) > 100000) {
+                  if (len(base64.base64) == 0) {
                     setFileErr(true);
                   } 
                   else {

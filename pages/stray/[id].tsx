@@ -13,11 +13,12 @@ import { Typography, Box } from "@mui/material";
 import styles from "../../styles/strayPage.module.css";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import Navbar from "../../components/Navbar";
+import InfoIcon from "@mui/icons-material/Info";
 
 const Id: NextPage = () => {
   const router = useRouter();
   const [stray, setStray] = useState<any>();
-  const [openModal, setOpenModal] = useState<any>(false);
+  const [openDetsModal, setOpenDetsModal] = useState<any>(false);
   const [openImgModal, setOpenImgModal] = useState<any>(false);
   const matches = useMediaQuery("(min-width:400px)");
   const [viewport, setViewPort] = useState({
@@ -75,13 +76,25 @@ const Id: NextPage = () => {
               >
                 {stray.strayType === "cat" ? (
                   <h1>
-                    <GiCat style={{ color: "rgb(208, 79, 231)"}}/>
+                    <GiCat style={{ color: "rgb(208, 79, 231)" , fontSize: "40px"}} />
                   </h1>
                 ) : (
                   <h1>
-                    <GiSittingDog />
+                    <GiSittingDog style={{fontSize: "40px"}}/>
                   </h1>
                 )}
+              </Marker>
+
+              <Marker
+                style={{ cursor: "pointer" }}
+                latitude={stray.latitude}
+                longitude={stray.longitude}
+                onClick={() => setOpenDetsModal(true)}
+                offset={[-40, -40]}
+              >
+                <h2>
+                  <InfoIcon fontSize="large"/>
+                </h2>
               </Marker>
             </ReactMapGL>
 
@@ -102,23 +115,29 @@ const Id: NextPage = () => {
               </div>
             )}
 
-            <div
+            {openDetsModal && <div
               className={matches ? styles.strayDetails : styles.strayDetailsM}
+              onClick={() => setOpenDetsModal(false)}
             >
-              <Typography variant={matches ? "h5" : "subtitle1"} >
+              <Typography variant={matches ? "h5" : "subtitle1"}>
                 {stray.description}
               </Typography>
-              <Typography variant={matches ? "h6" : "subtitle2"} alignSelf="flex-end">
+              <Typography
+                variant={matches ? "h6" : "subtitle2"}
+                alignSelf="flex-end"
+              >
                 {stray.creator}
               </Typography>
-              <Typography variant={matches ? "h6" : "subtitle2"} alignSelf="flex-end">
+              <Typography
+                variant={matches ? "h6" : "subtitle2"}
+                alignSelf="flex-end"
+              >
                 {stray.contact}
               </Typography>
-            </div>
+            </div>}
           </>
         )}
       </div>
-     
     </>
   );
 };
